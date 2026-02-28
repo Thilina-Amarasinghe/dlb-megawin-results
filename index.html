@@ -27,13 +27,13 @@
       width: 100%;
     }
 
-    /* Professional Header Card */
+    /* Professional Header Card - Centered with Large Logo */
     .header-card {
       background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border-radius: 48px;
-      padding: 40px 50px;
+      border-radius: 60px;
+      padding: 50px 40px;
       box-shadow: 0 30px 60px -20px rgba(0,20,40,0.4),
                   inset 0 1px 2px rgba(255,255,255,0.8);
       border: 1px solid rgba(255,255,255,0.4);
@@ -47,109 +47,77 @@
 
     .header-container {
       display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 30px;
-    }
-
-    /* Logo Section */
-    .logo-wrapper {
-      flex: 0 0 auto;
-      background: white;
-      border-radius: 30px;
-      padding: 15px 25px;
-      box-shadow: 0 15px 25px -10px rgba(0,0,0,0.15);
-      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      border: 2px solid rgba(255,215,0,0.3);
+      text-align: center;
+      gap: 25px;
+    }
+
+    /* Logo Section - Larger */
+    .logo-wrapper {
+      background: white;
+      border-radius: 40px;
+      padding: 25px 40px;
+      box-shadow: 0 20px 30px -12px rgba(0,0,0,0.2);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 3px solid rgba(255,215,0,0.4);
+      max-width: 90%;
     }
 
     .logo-img {
-      height: 90px;
+      height: 130px;
       width: auto;
-      max-width: 200px;
+      max-width: 100%;
       object-fit: contain;
     }
 
-    /* Title Section */
+    /* Title Section - Centered */
     .title-section {
-      flex: 1;
-      text-align: center;
-    }
-
-    .raffle-title {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #0a1a3a;
-      letter-spacing: -0.02em;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-
-    .raffle-title span {
-      color: #c5a028;
-      font-weight: 800;
+      width: 100%;
     }
 
     .date-badge {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       background: linear-gradient(135deg, #0a1f44, #142b56);
       color: white;
-      padding: 10px 32px;
-      border-radius: 60px;
-      font-size: 2rem;
+      padding: 15px 45px;
+      border-radius: 70px;
+      font-size: 2.5rem;
       font-weight: 700;
-      letter-spacing: 2px;
-      box-shadow: 0 12px 22px -8px rgba(0,30,70,0.5);
-      border: 1px solid rgba(255,215,0,0.4);
-      margin: 15px 0 5px;
+      letter-spacing: 3px;
+      box-shadow: 0 15px 25px -8px rgba(0,30,70,0.6);
+      border: 2px solid rgba(255,215,0,0.5);
+      margin: 10px auto;
     }
 
     .date-badge::before {
       content: '📅';
-      margin-right: 15px;
-      font-size: 2rem;
-      filter: drop-shadow(0 2px 3px gold);
+      margin-right: 18px;
+      font-size: 2.5rem;
+      filter: drop-shadow(0 3px 4px gold);
     }
 
     .society-name {
-      font-size: 1.6rem;
+      font-size: 2rem;
       font-weight: 600;
       color: #2a3f6e;
-      margin-top: 5px;
+      margin-top: 15px;
+      background: rgba(255,255,255,0.3);
+      padding: 10px 30px;
+      border-radius: 60px;
+      display: inline-block;
+      backdrop-filter: blur(4px);
     }
 
     .society-name strong {
       color: #c5a028;
       font-weight: 700;
-    }
-
-    /* Right Decoration (optional) */
-    .draw-info {
-      flex: 0 0 auto;
-      background: rgba(10,30,60,0.1);
-      backdrop-filter: blur(5px);
-      border-radius: 100px;
-      padding: 12px 25px;
-      border: 1px solid rgba(255,215,0,0.3);
-      color: #0a1f44;
-      font-weight: 600;
-      font-size: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .draw-info span {
-      background: #c5a028;
-      color: white;
-      padding: 5px 15px;
-      border-radius: 40px;
-      font-size: 1.4rem;
-      font-weight: 700;
+      font-size: 2.2rem;
     }
 
     /* Animation */
@@ -161,61 +129,55 @@
     /* Responsive */
     @media (max-width: 800px) {
       .header-card {
-        padding: 30px 25px;
-        border-radius: 36px;
+        padding: 40px 25px;
+        border-radius: 50px;
       }
-      .header-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
+      .logo-wrapper {
+        padding: 20px 30px;
       }
       .logo-img {
-        height: 70px;
-      }
-      .raffle-title {
-        font-size: 1.9rem;
+        height: 100px;
       }
       .date-badge {
-        font-size: 1.7rem;
-        padding: 8px 25px;
+        font-size: 2rem;
+        padding: 12px 35px;
+      }
+      .date-badge::before {
+        font-size: 2rem;
       }
       .society-name {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
+      }
+      .society-name strong {
+        font-size: 1.8rem;
       }
     }
 
     @media (max-width: 480px) {
       .header-card {
-        padding: 20px 15px;
-        border-radius: 28px;
+        padding: 30px 15px;
+        border-radius: 40px;
       }
       .logo-wrapper {
-        padding: 10px 18px;
+        padding: 15px 20px;
       }
       .logo-img {
-        height: 50px;
-      }
-      .raffle-title {
-        font-size: 1.5rem;
+        height: 70px;
       }
       .date-badge {
-        font-size: 1.3rem;
-        padding: 6px 18px;
+        font-size: 1.5rem;
+        padding: 10px 20px;
       }
       .date-badge::before {
-        font-size: 1.3rem;
-        margin-right: 8px;
+        font-size: 1.5rem;
+        margin-right: 10px;
       }
       .society-name {
-        font-size: 1.1rem;
+        font-size: 1.2rem;
+        padding: 8px 20px;
       }
-      .draw-info {
-        font-size: 0.9rem;
-        padding: 8px 15px;
-      }
-      .draw-info span {
-        font-size: 1.1rem;
-        padding: 3px 10px;
+      .society-name strong {
+        font-size: 1.4rem;
       }
     }
   </style>
@@ -224,27 +186,19 @@
   <div class="container">
     <div class="header-card">
       <div class="header-container">
-        <!-- Logo -->
+        <!-- Large Logo - Centered -->
         <div class="logo-wrapper">
-          <img src="images/logo.png" alt="DLB Welfare Society Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/200x90?text=DLB'">
+          <img src="images/logo.png" alt="DLB Welfare Society Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/300x130?text=DLB+Logo'">
         </div>
 
-        <!-- Center Content -->
+        <!-- Date and Society Name - Centered -->
         <div class="title-section">
-          <div class="raffle-title">
-            <span>Raffle</span> Draw Results
-          </div>
           <div class="date-badge">
             2026.03.01
           </div>
           <div class="society-name">
             <strong>DLB</strong> Welfare Society
           </div>
-        </div>
-
-        <!-- Optional Right Badge -->
-        <div class="draw-info">
-          <span>#001</span> Grand Draw
         </div>
       </div>
     </div>
