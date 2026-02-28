@@ -2,9 +2,9 @@
 <html lang="si">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   <title>DLB Welfare Society - Raffle Draw</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -13,8 +13,8 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(145deg, #f5f7fa 0%, #e9edf2 100%);
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #05997e 0%, #0600ab 100%);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -22,23 +22,27 @@
       padding: 20px;
     }
 
-    /* Professional Header Card */
-    .header-card {
+    .container {
       max-width: 1100px;
       width: 100%;
-      background: rgba(255,255,255,0.75);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+    }
+
+    /* Professional Header Card */
+    .header-card {
+      background: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       border-radius: 48px;
       padding: 40px 50px;
-      box-shadow: 0 30px 60px -20px rgba(0,20,40,0.3),
-                  inset 0 1px 1px rgba(255,255,255,0.8);
-      border: 1px solid rgba(255,255,255,0.5);
+      box-shadow: 0 30px 60px -20px rgba(0,20,40,0.4),
+                  inset 0 1px 2px rgba(255,255,255,0.8);
+      border: 1px solid rgba(255,255,255,0.4);
       transition: all 0.3s ease;
+      animation: fadeSlideUp 0.8s ease-out;
     }
 
     .header-card:hover {
-      box-shadow: 0 40px 70px -20px rgba(0,30,60,0.4);
+      box-shadow: 0 40px 70px -20px rgba(0,30,60,0.5);
     }
 
     .header-container {
@@ -55,11 +59,11 @@
       background: white;
       border-radius: 30px;
       padding: 15px 25px;
-      box-shadow: 0 15px 25px -10px rgba(0,0,0,0.1);
+      box-shadow: 0 15px 25px -10px rgba(0,0,0,0.15);
       display: flex;
       align-items: center;
       justify-content: center;
-      border: 1px solid rgba(255,215,0,0.3);
+      border: 2px solid rgba(255,215,0,0.3);
     }
 
     .logo-img {
@@ -69,56 +73,69 @@
       object-fit: contain;
     }
 
-    /* Center Content */
+    /* Title Section */
     .title-section {
       flex: 1;
       text-align: center;
     }
 
-    .society-name {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #1a2b4c;
+    .raffle-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #0a1a3a;
       letter-spacing: -0.02em;
+      line-height: 1.2;
       margin-bottom: 8px;
     }
 
-    .society-name span {
+    .raffle-title span {
       color: #c5a028;
-      font-weight: 700;
+      font-weight: 800;
     }
 
     .date-badge {
       display: inline-flex;
       align-items: center;
-      background: linear-gradient(135deg, #1e2b4a, #14223c);
+      background: linear-gradient(135deg, #0a1f44, #142b56);
       color: white;
-      padding: 10px 30px;
+      padding: 10px 32px;
       border-radius: 60px;
       font-size: 2rem;
       font-weight: 700;
       letter-spacing: 2px;
-      box-shadow: 0 10px 20px -5px rgba(0,20,50,0.4);
-      border: 1px solid rgba(255,215,0,0.3);
-      margin-top: 5px;
+      box-shadow: 0 12px 22px -8px rgba(0,30,70,0.5);
+      border: 1px solid rgba(255,215,0,0.4);
+      margin: 15px 0 5px;
     }
 
     .date-badge::before {
       content: '📅';
       margin-right: 15px;
       font-size: 2rem;
-      filter: drop-shadow(0 2px 2px gold);
+      filter: drop-shadow(0 2px 3px gold);
     }
 
-    /* Right Decoration */
-    .draw-number {
+    .society-name {
+      font-size: 1.6rem;
+      font-weight: 600;
+      color: #2a3f6e;
+      margin-top: 5px;
+    }
+
+    .society-name strong {
+      color: #c5a028;
+      font-weight: 700;
+    }
+
+    /* Right Decoration (optional) */
+    .draw-info {
       flex: 0 0 auto;
-      background: rgba(255,255,255,0.5);
+      background: rgba(10,30,60,0.1);
       backdrop-filter: blur(5px);
       border-radius: 100px;
       padding: 12px 25px;
-      border: 1px solid rgba(255,215,0,0.4);
-      color: #1e2b4a;
+      border: 1px solid rgba(255,215,0,0.3);
+      color: #0a1f44;
       font-weight: 600;
       font-size: 1.2rem;
       display: flex;
@@ -126,7 +143,7 @@
       gap: 10px;
     }
 
-    .draw-number span {
+    .draw-info span {
       background: #c5a028;
       color: white;
       padding: 5px 15px;
@@ -135,86 +152,102 @@
       font-weight: 700;
     }
 
+    /* Animation */
+    @keyframes fadeSlideUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
     /* Responsive */
     @media (max-width: 800px) {
       .header-card {
         padding: 30px 25px;
+        border-radius: 36px;
       }
       .header-container {
         flex-direction: column;
         text-align: center;
+        gap: 20px;
       }
       .logo-img {
         height: 70px;
       }
+      .raffle-title {
+        font-size: 1.9rem;
+      }
       .date-badge {
-        font-size: 1.6rem;
-        padding: 8px 20px;
+        font-size: 1.7rem;
+        padding: 8px 25px;
+      }
+      .society-name {
+        font-size: 1.4rem;
       }
     }
 
     @media (max-width: 480px) {
       .header-card {
-        border-radius: 30px;
-        padding: 25px 15px;
+        padding: 20px 15px;
+        border-radius: 28px;
       }
-      .society-name {
-        font-size: 1.4rem;
+      .logo-wrapper {
+        padding: 10px 18px;
+      }
+      .logo-img {
+        height: 50px;
+      }
+      .raffle-title {
+        font-size: 1.5rem;
       }
       .date-badge {
         font-size: 1.3rem;
-        padding: 6px 15px;
+        padding: 6px 18px;
       }
       .date-badge::before {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         margin-right: 8px;
       }
-      .draw-number {
-        font-size: 1rem;
+      .society-name {
+        font-size: 1.1rem;
+      }
+      .draw-info {
+        font-size: 0.9rem;
         padding: 8px 15px;
       }
-      .draw-number span {
-        font-size: 1.2rem;
+      .draw-info span {
+        font-size: 1.1rem;
         padding: 3px 10px;
       }
-    }
-
-    /* Optional fade-in animation */
-    .header-card {
-      animation: fadeSlideUp 0.8s ease-out;
-    }
-
-    @keyframes fadeSlideUp {
-      0% { opacity: 0; transform: translateY(30px); }
-      100% { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
-  <div class="header-card">
-    <div class="header-container">
-      <!-- Logo Section -->
-      <div class="logo-wrapper">
-        <img src="images/logo.png" alt="DLB Welfare Society Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/200x90?text=DLB+Logo'">
-      </div>
-
-      <!-- Center Title & Date -->
-      <div class="title-section">
-        <div class="society-name">
-          <span>DLB</span> Welfare Society
+  <div class="container">
+    <div class="header-card">
+      <div class="header-container">
+        <!-- Logo -->
+        <div class="logo-wrapper">
+          <img src="images/logo.png" alt="DLB Welfare Society Logo" class="logo-img" onerror="this.src='https://via.placeholder.com/200x90?text=DLB'">
         </div>
-        <div class="date-badge">
-          2026.03.01
-        </div>
-      </div>
 
-      <!-- Right Side (Optional) -->
-      <div class="draw-number">
-        <span>#001</span> Grand Draw
+        <!-- Center Content -->
+        <div class="title-section">
+          <div class="raffle-title">
+            <span>Raffle</span> Draw Results
+          </div>
+          <div class="date-badge">
+            2026.03.01
+          </div>
+          <div class="society-name">
+            <strong>DLB</strong> Welfare Society
+          </div>
+        </div>
+
+        <!-- Optional Right Badge -->
+        <div class="draw-info">
+          <span>#001</span> Grand Draw
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- (මෙතනින් පස්සේ ඔයාගේ result tables එකතු කරන්න) -->
 </body>
 </html>
